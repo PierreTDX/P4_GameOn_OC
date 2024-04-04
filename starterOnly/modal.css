@@ -159,7 +159,8 @@ main {
   font-size: 16px;
 }
 
-.bground {
+.bground,
+.modal-success {
   display: none;
   position: fixed;
   z-index: 1;
@@ -171,7 +172,8 @@ main {
   background-color: rgba(26, 39, 156, 0.4);
 }
 
-.content {
+.content,
+.modal-content {
   margin: 5% auto;
   width: 100%;
   max-width: 500px;
@@ -185,7 +187,8 @@ main {
   padding-top: 10px;
 }
 
-.modal-body {
+.modal-body,
+.modal-content {
   padding: 15px 8%;
   margin: 15px auto;
 }
@@ -480,6 +483,7 @@ footer {
   padding-right: 2vw;
   margin: 0 20px;
 }
+
 @media screen and (max-width: 800px) {
   .hero-section {
     display: block;
