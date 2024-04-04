@@ -40,6 +40,11 @@ img {
 .main-navbar {
   float: right;
 }
+
+.fa-bars {
+  color: red;
+}
+
 .topnav a {
   float: left;
   display: block;
@@ -81,6 +86,7 @@ img {
 @media screen and (max-width: 768px) {
   .topnav.responsive {
     position: relative;
+    z-index: 2;
   }
   .topnav.responsive .icon {
     position: absolute;
@@ -92,6 +98,11 @@ img {
     display: block;
     text-align: left;
   }
+  .header-logo img {
+    width: 135px;
+    height: 21px;
+    object-fit: cover;
+  }
 }
 
 @media screen and (max-width: 540px) {
@@ -102,6 +113,14 @@ img {
     float: right;
     display: block;
     margin-top: -15px;
+  }
+  .header-logo img {
+    width: 135px;
+    height: 21px;
+    object-fit: cover;
+  }
+  .topnav {
+    z-index: 2;
   }
 }
 
@@ -169,7 +188,7 @@ main {
   height: 100%;
   width: 100%;
   overflow: auto;
-  background-color: rgba(26, 39, 156, 0.4);
+  background-color: #ffffff;
 }
 
 .content,
@@ -185,6 +204,24 @@ main {
   position: relative;
   color: #fff;
   padding-top: 10px;
+}
+
+/* Center modal success  */
+
+.modal-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.modal-content h2 {
+  text-align: center;
+}
+
+.modal-content button {
+  position: absolute;
+  bottom: 5%;
 }
 
 .modal-body,
@@ -493,6 +530,7 @@ footer {
     background: #fff;
     color: #000;
     padding: 20px;
+    min-width: unset;
   }
   .hero-content::after {
     content: unset;
@@ -501,7 +539,7 @@ footer {
     display: none;
   }
   .hero-headline {
-    font-size: 4.5rem;
+    font-size: 3.5rem;
     white-space: normal;
   }
   .hero-text {
@@ -520,6 +558,28 @@ footer {
   .copyrights {
     margin-top: 50px;
     text-align: center;
+  }
+  .content {
+    transform: translateY(25px);
+  }
+  .btn-submit {
+    padding: 10px 50px;
+  }
+  .formData label {
+    margin-bottom: unset;
+  }
+  .text-control {
+    height: 37px;
+  }
+  .modal-content button {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .modal-success {
+    transform: translateY(25px);
+  }
+  .checkbox2-label {
+    padding-bottom: 10px;
   }
 }
 
