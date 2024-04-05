@@ -67,7 +67,6 @@ function disableSubmit(event) {
 
 
 // MESSAGE D'ERREUR DU PRÉNOM
-
 firstName.addEventListener("invalid", errorOnFirstName);
 
 function errorOnFirstName(event) {
@@ -85,7 +84,6 @@ function errorOnFirstName(event) {
 }
 
 // MESSAGE D'ERREUR DU NOM DE FAMILLE
-
 lastName.addEventListener("invalid", errorOnLastName);
 function errorOnLastName(event) {
 
@@ -103,7 +101,6 @@ function errorOnLastName(event) {
 }
 
 // MESSAGE D'ERREUR DE LA DATE DE NAISSANCE
-
 birthdate.addEventListener("invalid", errorOnBirthdate);
 
 function errorOnBirthdate(event) {
@@ -121,7 +118,6 @@ function errorOnBirthdate(event) {
 }
 
 // MESSAGE D'ERREUR DES BOUTONS RADIO
-
 radioButton1.addEventListener("invalid", errorOnLocation);
 radioButton2.addEventListener("invalid", errorOnLocation);
 radioButton3.addEventListener("invalid", errorOnLocation);
@@ -145,10 +141,7 @@ function errorOnLocation(event) {
 };
 
 
-
 // MESSAGE D'ERREUR DE L'EMAIL
-
-
 email.addEventListener("invalid", errorOnEmail);
 
 function errorOnEmail(event) {
@@ -163,9 +156,7 @@ function errorOnEmail(event) {
       parentElement.removeAttribute("data-error");
       parentElement.removeAttribute("data-error-visible");
     }
-
   });
-
 }
 
 
@@ -196,7 +187,6 @@ function openValidationMessage () {
 
 
 //fermeture de la modale 2 au clic sur la croix ou sur le bouton fermer
-
   closeButtonTop.addEventListener("click", closeModal2)
   closeButtonBottom.addEventListener("click", closeModal2)
   
@@ -205,10 +195,6 @@ function openValidationMessage () {
     modalContainer.style.display = "none";
   }
 };
-
-
-
-
 
 function editNav() {
   var x = document.getElementById("myTopnav");
@@ -221,8 +207,6 @@ function editNav() {
 
 
 //GESTION DE L'ENVOI DU FORMULAIRE //
-
-
 function validate(event) {
   event.preventDefault();
 
@@ -234,7 +218,7 @@ function validate(event) {
   const conditionsAreAccepted = acceptedConditions.checked;
 
   if (firstNameIsValid && lastNameIsValid && emailIsValid && birthdateIsValid && locationIsValid && conditionsAreAccepted) {
-    form.reset();
+    form.reset();             // réinitialise tous les éléments du formulaire
     closeModal()
     openValidationMessage()    // OUVERTURE DE LA MODALE 2
 
