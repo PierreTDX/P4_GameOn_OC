@@ -26,7 +26,6 @@ if (modalTrigger !== null) {
 }
 
 
-
 // FUNCTIONS
 
   // Edit Nav
@@ -39,7 +38,7 @@ if (modalTrigger !== null) {
     }
   }
 
-  // launch modal form
+  // Modal Display
   function launchModal(target) {
 
     target.style.setProperty('display','block');
