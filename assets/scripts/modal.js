@@ -1,23 +1,47 @@
-function editNav() {
-  var x = document.getElementById("myTopnav");
-  if (x.className === "topnav") {
-    x.className += " responsive";
-  } else {
-    x.className = "topnav";
-  }
-}
-
 // DOM Elements
-const modalbg = document.querySelector(".bground");
-const modalBtn = document.querySelectorAll(".modal-btn");
+const modalElement = document.querySelector(".bground");
+const modalTrigger = document.querySelectorAll(".modal-btn");
 const formData = document.querySelectorAll(".formData");
+const topNavTrigger = document.getElementById('myTopnav');
 
-// launch modal event
-modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
+if (modalTrigger !== null) {
 
-// launch modal form
-function launchModal() {
-  modalbg.style.display = "block";
+    modalTrigger.forEach((element) => {
+
+      console.log(element);
+
+      // Launch modal event on single Click
+      element.addEventListener('click',(e)=> {
+
+          launchModal(modalElement);
+        
+      });
+
+    
+    });
+
+} else {
+
+  console.warn(`Undefined element on DOM : ${modalBtn}`);
 }
+
+
+// FUNCTIONS
+
+  // Edit Nav
+  function editNav() {
+    var x = document.getElementById("myTopnav");
+    if (x.className === "topnav") {
+      x.className += " responsive";
+    } else {
+      x.className = "topnav";
+    }
+  }
+
+  // Modal Display
+  function launchModal(target) {
+
+    target.style.setProperty('display','block');
+  }
 
 
