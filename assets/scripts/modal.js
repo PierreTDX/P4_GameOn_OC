@@ -27,10 +27,14 @@ if (modalTrigger !== null) {
 
 
 // FUNCTIONS
+/**
+ * @param {NodeList} target
+ * @param {string} navItem
+ */
 
   // Edit Nav
-  function editNav() {
-    var x = document.getElementById("myTopnav");
+  function editNav(navItem) {
+    var x = document.getElementById(`${navitem}`);
     if (x.className === "topnav") {
       x.className += " responsive";
     } else {
