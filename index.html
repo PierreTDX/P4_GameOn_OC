@@ -12,6 +12,9 @@
   </head>
   <body>
 
+    <div class="skeleton">
+
+
     <div class="topnav" id="myTopnav">
 
       <div class="header-logo">
@@ -30,7 +33,6 @@
     </div>
 
     </div>
-  </div>
 
     <main>
 
@@ -61,7 +63,9 @@
         <div class="content">
           <span class="close"></span>
           <div class="modal-body">
+
             <form
+              class="modal-form"
               name="reserve"
               action="index.html"
               method="get"
@@ -76,6 +80,7 @@
                   id="first"
                   name="first"
                   minlength="2"
+                  required
                 /><br>
               </div>
               <div
@@ -86,6 +91,7 @@
                   type="text"
                   id="last"
                   name="last"
+                  required
                 /><br>
               </div>
               <div
@@ -96,6 +102,7 @@
                   type="email"
                   id="email"
                   name="email"
+                  required
                 /><br>
               </div>
               <div
@@ -197,10 +204,10 @@
                   J'ai lu et accepté les conditions d'utilisation.
                 </label>
                 <br>
-                <input class="checkbox-input" type="checkbox" id="checkbox2" />
+                <input class="checkbox-input" type="checkbox" id="checkbox2"  required />
                 <label class="checkbox2-label" for="checkbox2">
                   <span class="checkbox-icon"></span>
-                  Je Je souhaite être prévenu des prochains évènements.
+                  Je souhaite être prévenu des prochains évènements.
                 </label>
                 <br>
               </div>
@@ -208,21 +215,36 @@
                 class="btn-submit"
                 type="submit"
                 class="button"
-                value="C'est parti"
+                value="C'est parti ✨💪"
               />
             </form>
+
+            <div class="modal-success">
+              <p>
+                Merci pour votre inscription !
+              </p>
+              <button type="button" class="btn-submit btn-close">Fermer</button>
+            </div>
+
+           
           </div>
         </div>
       </div>
 
     </main>
 
-    <footer>
+   
+
+    </div>
+
+    <footer class="footer">
       <p class="copyrights">
         Copyright 2014 - 2024, GameOn Inc.
       </p>
     </footer>
 
-    <script src="./assets/scripts/modal.js"></script>
   </body>
+
+  <!-- CALLing Scripts -->
+  <script src="./assets/scripts/modal.js"></script>
 </html>
