@@ -2,7 +2,7 @@
 /* Modal form */
 
 .smFont {
-  font-size: 16px;
+  font-size: var(--body-font-size);
 }
 
 .bground {
@@ -18,68 +18,94 @@
 }
 
 .content {
-  margin: 5% auto;
+  position: relative;
   width: 100%;
   max-width: 500px;
+  margin: 5% auto;
+  padding-top: 10px;
   animation-name: modalopen;
   animation-duration: var(--modal-duration);
-  background: #232323;
+  background: var(--darken-color);
   border-radius: 10px;
   overflow: hidden;
-  position: relative;
-  color: #fff;
-  padding-top: 10px;
+  color: var(--white-color);
 }
 
 .modal-body {
-  padding: 15px 8%;
+  height:75dvh;
   margin: 15px auto;
+  padding: 15px 8%;
+  
 }
 
 label {
-  font-family: var(--font-default);
-  font-size: 17px;
-  font-weight: normal;
   display: inline-block;
   margin-bottom: 11px;
+  font-family: var(--font-default);
+  font-size: .875rem;
+  font-weight: var(--weight-reg);
 }
+
 input {
+  --input-height:50px;
   padding: 8px;
-  border: 0.8px solid #ccc;
-  outline: none;
+  font-size:1.25rem;
+  color:var(--black-color);
+  border: 0.8px solid var(--grey-color);
+  outline: 2px solid transparent;
+  transition: var(--regular-transition);
 }
+
+input:invalid{
+  outline-color: var(--primary-color);
+}
+
+input:valid {
+  background:var(--black-color);
+  color:var(--white-color);
+}
+
 .text-control {
+  width: 100%;
+  height: var(--input-height);
   margin: 0;
   padding: 8px;
-  width: 100%;
-  border-radius: 8px;
-  font-size: 20px;
-  height: 48px;
+  border-radius: var(--radius);
+  font-size: 1.25rem;
 }
+
+/* When the form is OK go to Panel 2 */
+.modal-form.success{
+  display:none;
+}
+
 .formData[data-error]::after {
   content: attr(data-error);
-  font-size: 0.4em;
-  color: #e54858;
   display: block;
-  margin-top: 7px;
-  margin-bottom: 7px;
+  margin-block: 7px;
+  font-size: 0.4em;
+  color: var(--error-color);
   text-align: right;
   line-height: 0.3;
   opacity: 0;
   transition: 0.3s;
 }
+
 .formData[data-error-visible="true"]::after {
   opacity: 1;
 }
+
 .formData[data-error-visible="true"] .text-control {
-  border: 2px solid #e54858;
+  border: 2px solid var(--error-color);
 }
-/* 
+
+
 input[data-error]::after {
     content: attr(data-error);
     font-size: 0.4em;
     color: red;
-} */
+} 
+
 .checkbox-label,
 .checkbox2-label {
   position: relative;
@@ -89,10 +115,11 @@ input[data-error]::after {
 }
 .checkbox-label .checkbox-icon,
 .checkbox2-label .checkbox-icon {
+  --sizes:20px;
   display: block;
-  width: 20px;
-  height: 20px;
-  border: 2px solid #279e7a;
+  width: var(--sizes);
+  height: var(--sizes);
+  border: 2px solid var(--success-color);
   border-radius: 50%;
   text-indent: 29px;
   white-space: nowrap;
@@ -103,48 +130,55 @@ input[data-error]::after {
 }
 .checkbox-label .checkbox-icon::after,
 .checkbox2-label .checkbox-icon::after {
+  --sizes:13px;
   content: "";
-  width: 13px;
-  height: 13px;
-  background-color: #279e7a;
-  border-radius: 50%;
-  text-indent: 29px;
-  white-space: nowrap;
+  width: var(--sizes);
+  height: var(--sizes);
   position: absolute;
   left: 50%;
   top: 50%;
+  background-color: var(--success-color);
+  border-radius: 50%;
+  text-indent: 29px;
+  white-space: nowrap;
   transform: translate(-50%, -50%);
   transition: 0.3s;
   opacity: 0;
 }
+
 .checkbox-input {
   display: none;
 }
+
 .checkbox-input:checked + .checkbox-label .checkbox-icon::after,
 .checkbox-input:checked + .checkbox2-label .checkbox-icon::after {
   opacity: 1;
 }
+
 .checkbox-input:checked + .checkbox2-label .checkbox-icon {
-  background: #279e7a;
+  background: var(--success-color);
 }
+
 .checkbox2-label .checkbox-icon {
   border-radius: 4px;
   border: 0;
   background: #c4c4c4;
 }
+
 .checkbox2-label .checkbox-icon::after {
   width: 7px;
   height: 4px;
   border-radius: 2px;
   background: transparent;
   border: 2px solid transparent;
-  border-bottom-color: #fff;
-  border-left-color: #fff;
+  border-bottom-color: var(--white-color);
+  border-left-color: var(--white-color);
   transform: rotate(-55deg);
   left: 21%;
   top: 19%;
 }
-.close {
+
+.close-cross {
   position: absolute;
   right: 15px;
   top: 15px;
@@ -153,34 +187,54 @@ input[data-error]::after {
   opacity: 1;
   cursor: pointer;
   transform: scale(0.7);
+  transition: var(--regular-transition);
 }
-.close:before,
-.close:after {
+
+
+.close-cross:before,
+.close-cross:after {
   position: absolute;
   left: 15px;
   content: " ";
   height: 33px;
   width: 3px;
-  background-color: #fff;
+  background-color: var(--white-color);
 }
-.close:before {
+
+.close-cross:before {
   transform: rotate(45deg);
 }
-.close:after {
+
+.close-cross:after {
   transform: rotate(-45deg);
 }
+
+.close-cross.hit::before,
+.close-cross.hit::after{
+  transform: rotate3d(2turn);
+}
+
+
+input[type=submit],
 .btn-submit,
 .btn-signup {
-  background: #fe142f;
   display: block;
-  margin: 0 auto;
-  border-radius: 7px;
+  margin: 1rem auto;
+  padding: 10px 30px;
+  border-radius: var(--radius);
   font-size: 1rem;
-  padding: 12px 82px;
-  color: #fff;
+  color: var(--white-color);
+  background: var(--primary-color);
+  transition: var(--regular-transition);
   cursor: pointer;
   border: 0;
 }
+
+input[type=submit]:hover,
+.btn-submit:hover{
+  background: var(--third-color);
+}
+
 /* custom select styles */
 .custom-select {
   position: relative;
@@ -193,7 +247,7 @@ input[data-error]::after {
   display: none;
 }
 .select-selected {
-  background-color: #fff;
+  background-color: var(--white-color);
 }
 
 /* Style the arrow inside the select element: */
@@ -219,7 +273,7 @@ input[data-error]::after {
 
 .select-items div,
 .select-selected {
-  color: #000;
+  color: var(--black-color);
   padding: 11px 16px;
   border: 1px solid transparent;
   border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
@@ -231,7 +285,7 @@ input[data-error]::after {
 /* Style items (options): */
 .select-items {
   position: absolute;
-  background-color: #fff;
+  background-color: var(--white-color);
   top: 89%;
   left: 0;
   right: 0;
@@ -247,8 +301,32 @@ input[data-error]::after {
 .same-as-selected {
   background-color: rgba(0, 0, 0, 0.1);
 }
+
 /* custom select end */
 .text-label {
   font-weight: normal;
-  font-size: 16px;
+  font-size: .85rem;
+}
+
+/* 2nd Panel On Modal */
+.modal-success{
+  /* display: none; */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.modal-sucess.on{
+  display:flex;
+}
+
+.modal-success > p {
+  font-size:2rem;
+  color:var(--white-color);
+  text-align: center;
+  line-height: 2rem;
+}
+
+.btn-close {
+
+
 }
