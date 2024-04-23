@@ -32,7 +32,7 @@
 }
 
 .modal-body {
-  height:720px;
+  height:75dvh;
   margin: 15px auto;
   padding: 15px 8%;
   
@@ -178,7 +178,7 @@ input[data-error]::after {
   top: 19%;
 }
 
-.close {
+.close-cross {
   position: absolute;
   right: 15px;
   top: 15px;
@@ -191,8 +191,8 @@ input[data-error]::after {
 }
 
 
-.close:before,
-.close:after {
+.close-cross:before,
+.close-cross:after {
   position: absolute;
   left: 15px;
   content: " ";
@@ -201,16 +201,16 @@ input[data-error]::after {
   background-color: var(--white-color);
 }
 
-.close:before {
+.close-cross:before {
   transform: rotate(45deg);
 }
 
-.close:after {
+.close-cross:after {
   transform: rotate(-45deg);
 }
 
-.close.hit::before,
-.close.hit::after{
+.close-cross.hit::before,
+.close-cross.hit::after{
   transform: rotate3d(2turn);
 }
 
@@ -310,7 +310,7 @@ input[type=submit]:hover,
 
 /* 2nd Panel On Modal */
 .modal-success{
-  display: none;
+  /* display: none; */
   flex-direction: column;
   justify-content: center;
   align-items: center;

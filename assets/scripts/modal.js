@@ -3,21 +3,34 @@ const modalElement = document.querySelector(".bground");
 const modalTrigger = document.querySelectorAll(".modal-btn");
 const formData = document.querySelectorAll(".formData");
 const topNavTrigger = document.getElementById('myTopnav');
+const modalCloser = document.querySelectorAll('.closer');
 
+
+//Get Modal In/Out by click trigger
 if (modalTrigger !== null) {
 
-    modalTrigger.forEach((element) => {
-
-      console.log(element);
+    modalTrigger.forEach((trigger) => {
 
       // Launch modal event on single Click
-      element.addEventListener('click',(e)=> {
+      trigger.addEventListener('click',(e)=> {
 
-          launchModal(modalElement);
+          setDisplayModal(modalElement,'block');
         
       });
 
+      
+
     
+    });
+
+    modalCloser.forEach((closer) => {
+  
+      closer.addEventListener('click',(e) =>{
+
+        setDisplayModal(modalElement,'none');
+
+      });
+
     });
 
 } else {
@@ -26,10 +39,28 @@ if (modalTrigger !== null) {
 }
 
 
+// Get some Interactions in Modal
+
+const modalbodyChilds = document.querySelectorAll('.modal-body > *');
+
+
+modalbodyChilds.forEach((modalChild) => {
+
+  // console.log(modalChild);
+
+  let getClassName = modalChild.getAttribute('class');
+
+  modalChild.dataset.display = getClassName; 
+
+  console.log(modalChild.dataset.display);
+});
+
+
 // FUNCTIONS
 /**
  * @param {NodeList} target
  * @param {string} navItem
+ * @param {string} displayValue
  */
 
   // Edit Nav
@@ -43,9 +74,11 @@ if (modalTrigger !== null) {
   }
 
   // Modal Display
-  function launchModal(target) {
+  function setDisplayModal(target,displayValue) {
 
-    target.style.setProperty('display','block');
+    target.style.setProperty('display',displayValue);
+
   }
+
 
 
