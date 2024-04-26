@@ -20,7 +20,15 @@ body {
   max-width: 1300px;
   margin: 0 auto;
 }
-
+#divPrenom:empty {
+  color: red;
+}
+#divNom:empty {
+  color: red;
+}
+#divEmail:empty {
+  color: red;
+}
 p {
   margin-bottom: 0;
   padding: 0.5vw;
@@ -526,4 +534,25 @@ footer {
     opacity: 1;
   }
 }
-
+/* ======================================================================================================================================= */
+/* ici, c'est mon css test */
+.container {
+  display: flex; /* Utilisation de flexbox pour aligner le contenu */
+  justify-content: center; /* Centre horizontalement le contenu */
+  align-items: center; /* Centre verticalement le contenu */
+  height: 200px; /* Hauteur de la div container (à ajuster selon tes besoins) */
+  /* border: 1px solid black; Ajout d'une bordure pour visualiser la div */
+  margin-bottom: 25%;
+  margin-top:25%
+}
+.bground1 {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  background-color: rgba(26, 39, 156, 0.4);
+}
