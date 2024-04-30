@@ -140,39 +140,6 @@ allBtnRadio.forEach((radio) =>
   )
 );
 
-// Check if input are valid
-// function preventFormSubmission(event) {
-//   event.preventDefault();
-
-//   const firstNameInput = document.getElementById("first").value;
-//   const lastNameInput = document.getElementById("last").value;
-//   const birthdateInput = document.getElementById("birthdate").value;
-//   const emailInput = document.getElementById("email").value;
-//   const quantityInput = document.getElementById("quantity").value;
-//   const allBtnRadio = document.querySelectorAll("input[name='location']");
-
-//   if (firstNameInput === "") {
-//     setErrorMessage(document.getElementById("first"), message.name);
-//   }
-//   if (lastNameInput === "") {
-//     setErrorMessage(document.getElementById("last"), message.name);
-//   }
-//   if (birthdateInput === "") {
-//     setErrorMessage(document.getElementById("birthdate"), message.birthdate);
-//   }
-//   if (emailInput === "") {
-//     setErrorMessage(document.getElementById("email"), message.email);
-//   }
-//   if (quantityInput === "") {
-//     setErrorMessage(document.getElementById("quantity"), message.quantity);
-//   }
-//   const isChecked = Array.from(allBtnRadio).some((radio) => radio.checked);
-//   if (!isChecked) {
-//     setErrorMessage(allBtnRadio[0], message.city);
-//     return false;
-//   }
-// }
-
 // Valid form function
 function validate(e) {
   e.preventDefault();
