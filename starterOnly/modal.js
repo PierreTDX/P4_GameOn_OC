@@ -60,52 +60,37 @@ form.addEventListener('submit', function(event) {
 
     if (firstName.length < 2 || firstName === '') {
       valid = false;
-      console.log('First');
-      // Add block to related error message
-      // To be completed
+      document.getElementById("errorMessage1").style.display = "block";
     } else {
-      // Add none to related error message
-      // To be completed
+      document.getElementById("errorMessage1").style.display = "none";
     }
 
     if (lastName.length < 2 || lastName === '') {
       valid = false;
-      console.log('Last');
-      // Add block to related error message
-      // To be completed
+      document.getElementById("errorMessage2").style.display = "block";
     } else {
-      // Add none to related error message
-      // To be completed
+      document.getElementById("errorMessage2").style.display = "none";
     }
 
     if (!validateEmail(email) || email === '') {
       valid = false;
-      console.log('Email');
-      // Add block to related error message
-      // To be completed
+      document.getElementById("errorMessage3").style.display = "block";
     } else {
-      // Add none to related error message
-      // To be completed
+      document.getElementById("errorMessage3").style.display = "none";
     }
 
     if (birthdate === '') {
       valid = false;
-      console.log('Birth');
-      // Add block to related error message
-      // To be completed
+      document.getElementById("errorMessage4").style.display = "block";
     } else {
-      // Add none to related error message
-      // To be completed
+      document.getElementById("errorMessage4").style.display = "none";
     }
 
     if (!/^[0-9]+$/.test(quantity) || quantity === '') {
       valid = false;
-      console.log('Quantity');
-      // Add block to related error message
-      // To be completed
+      document.getElementById("errorMessage5").style.display = "block";
     } else {
-      // Add none to related error message
-      // To be completed
+      document.getElementById("errorMessage5").style.display = "none";
     }
     
     locations.forEach(location => {
@@ -116,22 +101,16 @@ form.addEventListener('submit', function(event) {
 
     if (!checked) {
       valid = false;
-      console.log('Checked radio');
-      // Add block to related error message
-      // To be completed
+      document.getElementById("errorMessage6").style.display = "block";
     } else {
-      // Add none to related error message
-      // To be completed
+      document.getElementById("errorMessage6").style.display = "none";
     }
     
     if (!checkBox) {
       valid = false;
-      console.log('Checkedbox');
-      // Add block to related error message
-      // To be completed
+      document.getElementById("errorMessage7").style.display = "block";
     } else {
-      // Add none to related error message
-      // To be completed
+      document.getElementById("errorMessage7").style.display = "none";
     }
 
     // If validation passes, submit the form
