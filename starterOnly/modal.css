@@ -335,6 +335,22 @@ input[data-error]::after {
   cursor: pointer;
   border: 0;
 }
+
+/* Hide the error messages until error spotted */
+.errorMessage {
+  display: none;
+  color: red;
+  font-size: 12px;
+}
+
+.formDataQuantity{
+    margin-top: 10px;
+}
+
+#errorMessage7 {
+  margin-top: -8px;
+}
+
 /* custom select styles */
 .custom-select {
   position: relative;
