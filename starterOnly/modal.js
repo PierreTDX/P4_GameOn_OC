@@ -62,7 +62,7 @@ function checkInputValue(regex, element, message) {
   return true;
 }
 
-// Check if conditions are accepted
+// Check conditions accepted
 function checkIfConditionsAccepted(element, message) {
   if (!element.checked) {
     setErrorMessage(element, message);
@@ -72,7 +72,7 @@ function checkIfConditionsAccepted(element, message) {
   return true;
 }
 
-// Check if birthdate
+// Check birthdate
 function checkIfBirthdate(element, message) {
   if (!element.value) {
     setErrorMessage(element, message);
@@ -82,7 +82,7 @@ function checkIfBirthdate(element, message) {
   return true;
 }
 
-// Check if city are selected
+// Check city
 function checkIfCitySelected(cities, message) {
   const isChecked = Array.from(cities).some((radio) => radio.checked);
   if (!isChecked) {
