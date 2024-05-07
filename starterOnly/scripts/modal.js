@@ -134,7 +134,7 @@ allBtnRadio.forEach((radio) =>
 // Valid form function
 function validate(e) {
   e.preventDefault();
-
+  document.getElementById("form").addEventListener("submit", validate);
   // Check if all conditions are valid
   const isConditionsAccepted = checkIfConditionsAccepted(
     checkboxCondition,
