@@ -17,7 +17,7 @@ burgerIcon.addEventListener("click", () => {
   faBars.classList.add("fa-none");
 });
 
-// On récupère la croix et on ferme le menu burger au clique
+// On récupère la croix et on ferme le menu burger au clique de la croix
 const closeIcon = document.querySelector(".close-icon");
 closeIcon.addEventListener("click", () => {
   topNav.classList.remove("responsive");
