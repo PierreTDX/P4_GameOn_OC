@@ -35,11 +35,40 @@ img {
   margin: 3.5%;
 }
 .header-logo {
-    float: left;
+  float: left;
 }
 .main-navbar {
-    float: right;
+  float: right;
 }
+
+.fa-bars {
+  color: red;
+}
+
+/* CSS de la croix du menu burger   */
+
+.topnav a .fa-xmark {
+  display: none;
+  line-height: 1;
+  color: red;
+}
+
+.topnav .close-icon {
+  color: red;
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-top: -10px;
+}
+
+.topnav a .fa-block {
+  display: block;
+}
+
+.topnav a .fa-none {
+  display: none;
+}
+
 .topnav a {
   float: left;
   display: block;
@@ -53,7 +82,7 @@ img {
 }
 
 .topnav a:hover {
-  background-color: #ff0000;
+  /* background-color: #ff0000; */
   color: #ffffff;
   border-radius: 15px;
 }
@@ -69,7 +98,9 @@ img {
 }
 
 @media screen and (max-width: 768px) {
-  .topnav a {display: none;}
+  .topnav a {
+    display: none;
+  }
   .topnav a.icon {
     float: right;
     display: block;
@@ -77,29 +108,46 @@ img {
 }
 
 @media screen and (max-width: 768px) {
-  .topnav.responsive {position: relative;}
+  .topnav.responsive {
+    position: relative;
+    z-index: 2;
+  }
   .topnav.responsive .icon {
     position: absolute;
     right: 0;
     top: 0;
   }
+
   .topnav.responsive a {
     float: none;
     display: block;
     text-align: left;
   }
+  .header-logo img {
+    width: 135px;
+    height: 21px;
+    object-fit: cover;
+  }
 }
 
-
-
- @media screen and (max-width: 540px) {
-  .topnav a {display: none;}
+@media screen and (max-width: 540px) {
+  .topnav a {
+    display: none;
+  }
   .topnav a.icon {
     float: right;
     display: block;
     margin-top: -15px;
   }
-} 
+  .header-logo img {
+    width: 135px;
+    height: 21px;
+    object-fit: cover;
+  }
+  .topnav {
+    z-index: 2;
+  }
+}
 
 main {
   font-size: 130%;
@@ -111,8 +159,6 @@ main {
   margin: 1px 20px 15px;
   border-radius: 2rem;
   text-align: justify;
-
-
 }
 
 .modal-btn {
@@ -157,7 +203,8 @@ main {
   font-size: 16px;
 }
 
-.bground {
+.bground,
+.modal-success {
   display: none;
   position: fixed;
   z-index: 1;
@@ -166,10 +213,11 @@ main {
   height: 100%;
   width: 100%;
   overflow: auto;
-  background-color: rgba(26, 39, 156, 0.4);
+  background-color: #ffffff;
 }
 
-.content {
+.content,
+.modal-content {
   margin: 5% auto;
   width: 100%;
   max-width: 500px;
@@ -183,7 +231,26 @@ main {
   padding-top: 10px;
 }
 
-.modal-body {
+/* Center modal success  */
+
+.modal-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.modal-content h2 {
+  text-align: center;
+}
+
+.modal-content button {
+  position: absolute;
+  bottom: 5%;
+}
+
+.modal-body,
+.modal-content {
   padding: 15px 8%;
   margin: 15px auto;
 }
@@ -462,6 +529,7 @@ input[data-error]::after {
   height: 100%;
   display: block;
   padding: 0;
+  object-fit: cover;
 }
 .copyrights {
   color: #fe142f;
@@ -478,6 +546,7 @@ footer {
   padding-right: 2vw;
   margin: 0 20px;
 }
+
 @media screen and (max-width: 800px) {
   .hero-section {
     display: block;
@@ -487,6 +556,7 @@ footer {
     background: #fff;
     color: #000;
     padding: 20px;
+    min-width: unset;
   }
   .hero-content::after {
     content: unset;
@@ -495,7 +565,7 @@ footer {
     display: none;
   }
   .hero-headline {
-    font-size: 4.5rem;
+    font-size: 3.5rem;
     white-space: normal;
   }
   .hero-text {
@@ -515,6 +585,28 @@ footer {
     margin-top: 50px;
     text-align: center;
   }
+  .content {
+    transform: translateY(25px);
+  }
+  .btn-submit {
+    padding: 10px 50px;
+  }
+  .formData label {
+    margin-bottom: unset;
+  }
+  .text-control {
+    height: 37px;
+  }
+  .modal-content button {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .modal-success {
+    transform: translateY(25px);
+  }
+  .checkbox2-label {
+    padding-bottom: 10px;
+  }
 }
 
 @keyframes modalopen {
@@ -526,4 +618,3 @@ footer {
     opacity: 1;
   }
 }
-
