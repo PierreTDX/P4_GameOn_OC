@@ -58,6 +58,7 @@ function launchModal2() {
 // si true alors faire ...
 // si false alors faire ...
 form.addEventListener('submit', function (event) {
+  try {
   event.preventDefault(); // Empêche le rechargement de la page
   // Vérification de chaque champ du formulaire en une seule ligne
   const isValid = validateFirstName()
@@ -73,22 +74,25 @@ form.addEventListener('submit', function (event) {
   console.log(isValid);
   // Si tous les champs sont OK, alors ouvrire le maodal de confirmation
   if (isValid) {
-    console.log("Le formulaire est soumi");
-    closeModal();
+    closeModal(); // fermer le premier modal
     launchModal2(); // submitForm() = appelé dans le launchModal2()
   } else {
     console.log("Le formulaire contient des erreurs. La soumission est bloquée.");
+    }
+  } catch (error) {
+    console.error("Une erreur s'est produite lors de la soumission du formulaire:", error);
   }
 });
 
 // Fermeture du "modal" Confirmation inscription + soumission des données du formulaire
 function closeModal2() {
   try {
-    modalbg2.style.display = "none";
-    submitForm();
+    modalbg2.style.display = "none"; // fermeture
+    submitForm(); // soumission du formulaire
+    console.log("Le formulaire est soumi");
   }
   catch (error) {
-    console.log(error);
+    console.log("Erreur à la fermture du modal de confirmation et de la soumission",error);
   }
 }
 
@@ -130,9 +134,14 @@ function validateNameLength(name, length) {
 // si une chaîne de caractère ne contient pas de chiffres
 // qui prend comme paramètre input
 function containsNoDigits(input) {
+  try {
   const regex = /\d/; // regle du regex
   console.log("le champ ne contient pas de chiffres", !regex.test(input));
   return !regex.test(input);
+      } catch (error) {
+        console.error("Une erreur s'est produite dans containNoDigit", error);
+        return false;
+      }
 }
 
 // Fonction générique pour vérifier
@@ -182,17 +191,21 @@ function validateFormatDate(date) {
 // si une valeur est un nombre entier compris entre 0 et 99 et n'est pas vide
 // qui prend comme paramètre number
 function validateNumber(number) {
-  const num = parseInt(number, 10); // Conversion en entier
-  // Vérifie si la valeur est un nombre, un entier, et si elle est comprise entre 0 et 99
-  if (!isNaN(num) && Number.isInteger(num) && num >= 0 && num <= 99) {
-    console.log("Valeur nombre OK:", num);
-    return true;
-  } else {
-    console.log("Valeur nombre KO:", num);
-    return false;
+  try {
+    const num = parseInt(number, 10); // Conversion en entier
+    // Vérifie si la valeur est un nombre, un entier, et si elle est comprise entre 0 et 99
+    if (!isNaN(num) && Number.isInteger(num) && num >= 0 && num <= 99) {
+      console.log("Valeur nombre OK:", num);
+      return true;
+    } else {
+      console.log("Valeur nombre KO:", num);
+      return false;
+    }
+  } catch (error) {
+    console.error("Une erreur s'est produite lors de la validation du nombre:", error);
+    return false; // ou une autre valeur par défaut selon vos besoins
   }
 }
-
 
 
 
@@ -205,45 +218,70 @@ function validateNumber(number) {
 // Si la fonction de validation de chiffres est fausse je renvoie false
 // si ni l'une, ni l'autre est fausse alors je renvoie true
 function validateFirstName() {
-  console.log("dans firstName");
-  const firstName = document.getElementById("first").value;
-  if (!validateNameLength(firstName, 2)) {
-    console.log("longeur Prénom KO");
-    return false;
+  try {
+    console.log("dans firstName");
+    const firstName = document.getElementById("first").value;
+    if (!validateNameLength(firstName, 2)) {
+      console.log("longueur Prénom KO");
+      return false;
+    }
+    if (!containsNoDigits(firstName)) {
+      console.log("Prénom KO: contient des chiffres", firstName);
+      return false;
+    }
+    console.log("Prénom OK", firstName);
+    return true;
+  } catch (error) {
+    console.error("Une erreur s'est produite lors de la validation du prénom:", error);
+    return false; // ou une autre valeur par défaut selon vos besoins
   }
-  if (!containsNoDigits(firstName)) {
-    console.log("Prénom KO: contient des chiffres", firstName);
-    return false;
-  }
-  console.log("Prénom OK", firstName);
-  return true;
 }
 
 // Fonction de validation de LastName (2eme manière de coder)
 // Si les 2 fonctions testées sont "true"
 // alors retourne "true", sinon "false"
 function validateLastName() {
+  try {
   console.log("dans lastName");
   const lastName = document.getElementById("last").value;
   return validateNameLength(lastName, 2) && containsNoDigits(lastName);
+  } catch (error) {
+    console.error("Une erreur s'est produite lors de la validation du nom de famille:", error);
+    return false;
+  }
 }
 
 // Fonction de validation du champ e-mail
 function validateMail() {
-  const email = document.getElementById("email").value;
-  return validateFormatEmail(email);
+  try {
+    const email = document.getElementById("email").value;
+    return validateFormatEmail(email);
+  } catch (error) {
+    console.error("Une erreur s'est produite lors de la validation de l'e-mail:", error);
+    return false; // ou une autre valeur par défaut selon vos besoins
+  }
 }
 
 // Fonction de validation du champ date de naissance
 function validateBirthdate() {
-  const birthdate = document.getElementById("birthdate").value;
-  return validateFormatDate(birthdate);
+  try {
+    const birthdate = document.getElementById("birthdate").value;
+    return validateFormatDate(birthdate);
+  } catch (error) {
+    console.error("Une erreur s'est produite lors de la validation de la date de naissance:", error);
+    return false; // ou une autre valeur par défaut selon vos besoins
+  }
 }
 
 // Fonction de validation du champ nombre (ex: quantité)
 function validateQuantity() {
-  const quantity = document.getElementById("quantity").value;
-  return validateNumber(quantity);
+  try {
+    const quantity = document.getElementById("quantity").value;
+    return validateNumber(quantity);
+  } catch (error) {
+    console.error("Une erreur s'est produite lors de la validation de la quantité:", error);
+    return false; // ou une autre valeur par défaut selon vos besoins
+  }
 }
 
 // Fonction de validation des boutons radio
