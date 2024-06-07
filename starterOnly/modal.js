@@ -60,18 +60,18 @@ function launchModal2() {
 form.addEventListener('submit', function (event) {
   event.preventDefault(); // Empêche le rechargement de la page
   // Vérification de chaque champ du formulaire en une seule ligne
-  // const isValid = validateFirstName()
-  //                 && validateLastName()
-  //                 && validateMail()
-  //                 && validateBirthdate()
-  //                 && validateQuantity()
-  //                 && validateRadioButtons()
-  //                 && validateAcceptConditions();
-  const isValid = true ;
+  const isValid = validateFirstName()
+                  && validateLastName()
+                  && validateMail()
+                  && validateBirthdate()
+                  && validateQuantity()
+                  && validateRadioButtons()
+                  && validateAcceptConditions();
+  // const isValid = true ;
   // appeler la fonction de gesion des messages d'erreurs
   handleMessages();
   console.log(isValid);
-  // Si tous les champs sont OK, alors soumettre, sinon Non
+  // Si tous les champs sont OK, alors ouvrire le maodal de confirmation
   if (isValid) {
     console.log("Le formulaire est soumi");
     closeModal();
@@ -81,7 +81,7 @@ form.addEventListener('submit', function (event) {
   }
 });
 
-// Fermeture du "modal" Confirmation inscription
+// Fermeture du "modal" Confirmation inscription + soumission des données du formulaire
 function closeModal2() {
   try {
     modalbg2.style.display = "none";
