@@ -52,15 +52,6 @@ function launchModal2() {
   }
 }
 
-// Fermeture du "modal" Confirmation inscription
-function closeModal2() {
-  try {
-    modalbg2.style.display = "none";
-  }
-  catch (error) {
-    console.log(error);
-  }
-}
 
 // Tester si le formulaire est valide
 // mettre la valeur true ou false dans isValid (après execution des fonctions de validation)
@@ -69,29 +60,37 @@ function closeModal2() {
 form.addEventListener('submit', function (event) {
   event.preventDefault(); // Empêche le rechargement de la page
   // Vérification de chaque champ du formulaire en une seule ligne
-  const isValid = validateFirstName()
-                  && validateLastName()
-                  && validateMail()
-                  && validateBirthdate()
-                  && validateQuantity()
-                  && validateRadioButtons()
-                  && validateAcceptConditions();
-  // const isValid = true ;
+  // const isValid = validateFirstName()
+  //                 && validateLastName()
+  //                 && validateMail()
+  //                 && validateBirthdate()
+  //                 && validateQuantity()
+  //                 && validateRadioButtons()
+  //                 && validateAcceptConditions();
+  const isValid = true ;
   // appeler la fonction de gesion des messages d'erreurs
   handleMessages();
   console.log(isValid);
   // Si tous les champs sont OK, alors soumettre, sinon Non
   if (isValid) {
     console.log("Le formulaire est soumi");
-    // appeler la fonction de sousmission du formulaire
-    // submitForm();
     closeModal();
-    launchModal2();
-    setTimeout(submitForm, 5000);
+    launchModal2(); // submitForm() = appelé dans le launchModal2()
   } else {
     console.log("Le formulaire contient des erreurs. La soumission est bloquée.");
   }
 });
+
+// Fermeture du "modal" Confirmation inscription
+function closeModal2() {
+  try {
+    modalbg2.style.display = "none";
+    submitForm();
+  }
+  catch (error) {
+    console.log(error);
+  }
+}
 
 // Fonction pour soumettre le formulaire
 function submitForm() {
