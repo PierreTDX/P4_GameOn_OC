@@ -75,7 +75,7 @@ form.addEventListener('submit', function (event) {
   // Si tous les champs sont OK, alors ouvrire le maodal de confirmation
   if (isValid) {
     closeModal(); // fermer le premier modal
-    launchModal2(); // submitForm() = appelé dans le launchModal2()
+    launchModal2(); // submitForm() = appelé dans le closeModal2()
   } else {
     console.log("Le formulaire contient des erreurs. La soumission est bloquée.");
     }
